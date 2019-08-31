@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vendas High Tech</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <nav-bar></nav-bar>
+        
+        <h1>{{title}}</h1>
+
+        <form>
+            <h2>Nova venda</h2>
+            <input v-model="venda.data" type="date" placeholder="Data da Venda">
+            <input v-model="venda.total" type="number" placeholder="Total da Venda">
+            <select>
+                <option value="Jão da Silva">Jão da Silva</option>
+                <option value="Maria da Silva">Maria da Silva</option>
+                <option value="Pafúncio da Silva">Pafúncio da Silva</option>
+            </select>
+        </form>
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="components/NavBar.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            components: {
+                NavBar
+            },
+            data: {
+                title: 'Vendas High Tech',
+                venda: {}
+            }
+        })
+    </script>
+    
+</body>
+</html>

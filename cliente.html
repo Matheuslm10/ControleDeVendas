@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de Cliente</title>
+</head>
+<body>
+    
+    <div id="app">
+
+        <nav-bar></nav-bar>
+
+        <h1>{{title}}</h1>
+
+        <form-client @cancel="cancelar" @saved="callUpdateList" :client="client"></form-client>
+
+        <list-client ref="list_client"></list-client>
+
+        <br>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="services/ClientService.js"></script>
+    <script src="components/NavBar.js"></script>
+    <script src="components/FormClient.js"></script>
+    <script src="components/ListClient.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            components: {
+                NavBar,
+                FormClient,
+                ListClient,
+            },
+            data: {
+                title: 'Cadastro de Cliente',
+                client: {}
+            },
+            methods: {
+                cancelar() {
+                    this.client = {}
+                },
+                callUpdateList() {
+                    this.$refs.list_client.listAll()
+                }
+
+            }
+        })
+    </script>
+
+</body>
+</html>
